@@ -4,6 +4,17 @@ Built by Anna Syme and Claude (AI).
 
 This tool looks up real gender pay gap data for Australian companies, using data published by the [Workplace Gender Equality Agency (WGEA)](https://www.wgea.gov.au). It covers over 8,600 employers.
 
+## Pre-generated results
+
+No setup needed — these tables are ready to read now:
+
+| File | What it shows |
+|---|---|
+| [top20_worst_pay_gap.md](results/top20_worst_pay_gap.md) | 20 companies (500+ employees) where women's pay is furthest behind men's |
+| [top20_fewest_women_in_leadership.md](results/top20_fewest_women_in_leadership.md) | 20 companies (500+ employees) with the fewest women in senior roles |
+
+---
+
 ## What it shows
 
 For any Australian company you search for:
@@ -91,22 +102,6 @@ python3 wgea_analyze.py
 
 ```
 python3 wgea_analyze.py --industry
-```
-
----
-
-## Pre-generated results
-
-The `results/` folder contains ready-to-read tables generated from the 2024-25 data:
-
-| File | What it shows |
-|---|---|
-| [top20_worst_pay_gap.md](results/top20_worst_pay_gap.md) | 20 companies (500+ employees) where women's pay is furthest behind men's |
-| [top20_fewest_women_in_leadership.md](results/top20_fewest_women_in_leadership.md) | 20 companies (500+ employees) with the fewest women in senior roles |
-
-To regenerate these (e.g. after downloading fresh data):
-```
-python3 generate_results.py
 ```
 
 ---
