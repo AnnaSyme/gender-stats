@@ -119,6 +119,21 @@ def fmt_dollar(val):
         return str(val)
 
 
+def hourly_gap(avg_gpg, avg_remuneration, pct_women):
+    """Estimate how much more per hour men earn on average (men minus women, in $)."""
+    try:
+        g = float(avg_gpg)
+        r = float(avg_remuneration)
+        p = float(pct_women)
+        denominator = 1 - g * p
+        if denominator <= 0:
+            return None
+        diff_annual = r * g / denominator
+        return diff_annual / (38 * 52)
+    except (TypeError, ValueError, ZeroDivisionError):
+        return None
+
+
 def print_section(title):
     print(f"\n{'─'*60}")
     print(f"  {title}")
@@ -141,6 +156,15 @@ def print_pay_gap(record):
     for label in metrics:
         v = record.get(label)
         print(f"  {label:<38} {fmt_pct(v):>9}")
+
+    gap_hr = hourly_gap(
+        record.get("Average total remuneration GPG (%)"),
+        record.get("Total workforce - average total remuneration ($)*"),
+        record.get("Total workforce % women"),
+    )
+    hr_str = f"~${gap_hr:.2f}/hr" if gap_hr is not None else "n/a"
+    print(f"  {'Approx. hourly gap (men earn more)':<38} {hr_str:>9}")
+    print(f"  {'  (based on avg remuneration, 38hr/52wk)':<38}")
 
     # Quartile breakdown
     print_section("WORKFORCE QUARTILES — % women in each pay quartile")
