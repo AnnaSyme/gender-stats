@@ -6,7 +6,7 @@ This tool looks up real gender pay gap data for Australian companies, using data
 
 ## Pre-generated results
 
-No setup needed — these tables are ready to read now. Click any file name below.
+Click any file name below to see pre-generated results. 
 
 **Worst pay gap for women** (ranked by median total remuneration gap, companies with 500+ employees):
 
