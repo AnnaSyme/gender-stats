@@ -98,14 +98,56 @@ Wait for it to finish. You only need to do this once.
 python3 wgea_analyze.py "Woolworths"
 ```
 
-Replace `Woolworths` with any Australian company name. If there are multiple matches, you'll be shown a list to choose from.
+Replace `Woolworths` with any Australian company name. If there are multiple matches, you'll be shown a numbered list to choose from.
 
-The results print directly to your Terminal — no file is created. You'll see:
+The results print directly to your Terminal — no file is created. Here's what you'll see (using Qantas as an example):
 
-- **Pay gap %** — median and average gender pay gap for 2024-25
-- **Workforce quartiles** — % women in the top, upper-middle, lower-middle, and bottom pay quartiles
-- **Senior management** — breakdown of men vs women across CEO, executive, and senior manager roles
-- **Employment types** — how many men and women work full-time, part-time, or casually
+```
+════════════════════════════════════════════════════════════
+  Qantas Airways Limited
+  Transport, Postal and Warehousing  |  5000+ employees
+════════════════════════════════════════════════════════════
+
+────────────────────────────────────────────────────────────
+  PAY GAP 2024-25 (FTE-equivalent annualised salary)
+────────────────────────────────────────────────────────────
+  Positive % = men earn more.  Negative % = women earn more.
+
+  Metric                                   2024-25
+  Median total remuneration GPG (%)         +32.2%
+  Median base salary GPG (%)                +37.0%
+  Average total remuneration GPG (%)        +40.1%
+  Average base salary GPG (%)               +40.8%
+  Approx. hourly gap (men earn more)     ~$49.06/hr
+    (based on avg remuneration, 38hr/52wk)
+
+────────────────────────────────────────────────────────────
+  WORKFORCE QUARTILES — % women in each pay quartile
+────────────────────────────────────────────────────────────
+  Upper quartile (top earners)               19%   $178,804
+  Upper-middle quartile                      26%   $107,827
+  Lower-middle quartile                      37%    $74,773
+  Lower quartile (bottom earners)            40%    $53,088
+  Total workforce                            33%   $103,588
+
+────────────────────────────────────────────────────────────
+  SENIOR MANAGEMENT — gender breakdown
+────────────────────────────────────────────────────────────
+  Role                      Women     Men
+  CEOs                          0%   100%
+  Other Executives              22%    78%
+  Senior Managers               28%    72%
+  ─────────────────────────────────────
+  All senior roles combined     25%    75%   ⚠ 75% men
+
+────────────────────────────────────────────────────────────
+  EMPLOYMENT TYPES
+────────────────────────────────────────────────────────────
+  Type         Women     Men
+  Full-time      52%      48%
+  Part-time      73%      27%
+  Casual         56%      44%
+```
 
 Other examples:
 
@@ -137,18 +179,24 @@ The `results/` folder already contains pre-built tables (see top of this page). 
 python3 generate_results.py
 ```
 
-This will create or overwrite the following files in the `results/` folder:
+You'll see this in your Terminal:
 
-| File | What it contains |
-|---|---|
-| `results/top20_worst_pay_gap.md` | Top 20 companies by median pay gap % |
-| `results/top100_worst_pay_gap.md` | Top 100 companies by median pay gap % |
-| `results/top20_worst_hourly_gap.md` | Top 20 companies by estimated $/hr pay gap |
-| `results/top100_worst_hourly_gap.md` | Top 100 companies by estimated $/hr pay gap |
-| `results/top20_fewest_women_in_leadership.md` | Top 20 companies with fewest women in senior roles |
-| `results/top100_fewest_women_in_leadership.md` | Top 100 companies with fewest women in senior roles |
+```
+Loading data...
+  8,617 employers, 1,652 with senior management data
 
-All tables are filtered to companies with 500 or more employees.
+Generating tables...
+  Written: results/top20_worst_pay_gap.md       ← Top 20 by median pay gap %
+  Written: results/top100_worst_pay_gap.md      ← Top 100 by median pay gap %
+  Written: results/top20_worst_hourly_gap.md    ← Top 20 by estimated $/hr gap
+  Written: results/top100_worst_hourly_gap.md   ← Top 100 by estimated $/hr gap
+  Written: results/top20_fewest_women_in_leadership.md   ← Top 20 fewest women in senior roles
+  Written: results/top100_fewest_women_in_leadership.md  ← Top 100 fewest women in senior roles
+
+Done. Results saved to results/
+```
+
+Open any of those `.md` files in a text editor, or view them on GitHub where they render as formatted tables. All tables are filtered to companies with 500 or more employees.
 
 ---
 
