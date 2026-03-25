@@ -1,106 +1,57 @@
 # AU Gender Pay Stats
 
-Built by Anna Syme and Claude (AI).
+Built by Anna Syme and Claude (AI). Uses real data from the [Workplace Gender Equality Agency (WGEA)](https://www.wgea.gov.au).
 
-This tool looks up real gender pay gap data for Australian companies, using data published by the [Workplace Gender Equality Agency (WGEA)](https://www.wgea.gov.au). 
+### Pre-generated results
 
-## Pre-generated results
+Click any file to read now — no setup needed.
 
-Click any file name below to see pre-generated results. 
+| Category | Top 20 | Top 100 |
+|---|---|---|
+| Worst pay gap % | [top20_worst_pay_gap.md](results/top20_worst_pay_gap.md) | [top100_worst_pay_gap.md](results/top100_worst_pay_gap.md) |
+| Worst hourly gap ($/hr) | [top20_worst_hourly_gap.md](results/top20_worst_hourly_gap.md) | [top100_worst_hourly_gap.md](results/top100_worst_hourly_gap.md) |
+| Fewest women in leadership | [top20_fewest_women_in_leadership.md](results/top20_fewest_women_in_leadership.md) | [top100_fewest_women_in_leadership.md](results/top100_fewest_women_in_leadership.md) |
 
-**Worst pay gap for women** (ranked by median total remuneration gap, companies with 500+ employees):
+All tables cover companies with 500+ employees.
 
-| File | What it shows |
-|---|---|
-| [top20_worst_pay_gap.md](results/top20_worst_pay_gap.md) | Top 20 companies |
-| [top100_worst_pay_gap.md](results/top100_worst_pay_gap.md) | Top 100 companies |
+### What a company lookup shows
 
-**Worst hourly pay gap for women** (ranked by estimated $/hr men earn more than women, companies with 500+ employees):
-
-| File | What it shows |
-|---|---|
-| [top20_worst_hourly_gap.md](results/top20_worst_hourly_gap.md) | Top 20 companies |
-| [top100_worst_hourly_gap.md](results/top100_worst_hourly_gap.md) | Top 100 companies |
-
-**Fewest women in senior leadership** (CEOs, executives, senior managers — companies with 500+ employees, at least 5 people in senior roles):
-
-| File | What it shows |
-|---|---|
-| [top20_fewest_women_in_leadership.md](results/top20_fewest_women_in_leadership.md) | Top 20 companies |
-| [top100_fewest_women_in_leadership.md](results/top100_fewest_women_in_leadership.md) | Top 100 companies |
-
----
-
-## What it shows
-
-For any Australian company you search for:
-
-- **Pay gap %** — how much more (or less) men earn compared to women, for 2024-25 and 2023-24
-- **Workforce quartiles** — what % of the top earners are women vs the bottom earners
-- **Senior management** — % of CEOs, executives, and senior managers who are men vs women
-- **Employment types** — how many men and women work full-time, part-time, or casually
+- **Pay gap %** — median and average gender pay gap for 2024-25
+- **Approx. hourly gap** — estimated dollar difference per hour (men vs women)
+- **Workforce quartiles** — % women in top, upper-middle, lower-middle, and bottom pay bands
+- **Senior management** — breakdown across CEO, executive, and senior manager roles
+- **Employment types** — full-time, part-time, casual split by gender
 
 Pay figures use full-time-equivalent annual salary, so part-time workers are fairly compared to full-time.
 
----
+### Setup (one-time, ~5 minutes)
 
-## Before you start — what you need
+You need **Python 3**. To check: open Terminal and run `python3 --version`. If you get a version number, you're good. If not, download from [python.org](https://www.python.org/downloads/).
 
-You need **Python 3** installed on your computer. To check, open Terminal and type:
+**1. Download this project**
 
-```
-python3 --version
-```
-
-If you see a version number (e.g. `Python 3.11.2`), you're good. If not, download Python from [python.org](https://www.python.org/downloads/).
-
----
-
-## Step 1 — Download this project
-
-Click the green **Code** button on this page, then **Download ZIP**. Unzip it, and open Terminal.
-
-Navigate to the folder you just unzipped. For example:
-
+Click the green **Code** button → **Download ZIP**. Unzip it, open Terminal, and navigate to the folder:
 ```
 cd ~/Downloads/gender-stats-main
 ```
 
----
-
-## Step 2 — Install the one required library
-
-Copy and paste this into Terminal, then press Enter:
-
+**2. Install the required library**
 ```
 pip3 install openpyxl
 ```
 
-You only need to do this once.
-
----
-
-## Step 3 — Download the WGEA data
-
-This downloads the real pay gap data from the Australian government (~200 MB, one-time only):
-
+**3. Download the WGEA data** (~200 MB, one-time only)
 ```
 python3 fetch_wgea_data.py
 ```
 
-Wait for it to finish. You only need to do this once.
-
----
-
-## Step 4 — Look up a company
+### Look up a company
 
 ```
 python3 wgea_analyze.py "Woolworths"
 ```
 
-Replace `Woolworths` with any Australian company name. If there are multiple matches, you'll be shown a numbered list to choose from.
-
-The results print directly to your Terminal — no file is created. Here's what you'll see (using Qantas as an example):
+Replace `Woolworths` with any Australian company name. If there are multiple matches, you'll pick from a numbered list. Here's what the output looks like (Qantas example):
 
 ```
 ════════════════════════════════════════════════════════════
@@ -149,38 +100,19 @@ The results print directly to your Terminal — no file is created. Here's what 
   Casual         56%      44%
 ```
 
-Other examples:
-
+Other commands:
 ```
-python3 wgea_analyze.py "Commonwealth Bank"
-python3 wgea_analyze.py "BHP"
-python3 wgea_analyze.py "Qantas"
-```
-
-**Just want to browse?** Run without a name and you'll be prompted:
-
-```
-python3 wgea_analyze.py
+python3 wgea_analyze.py "Commonwealth Bank"   # search by name
+python3 wgea_analyze.py                       # browse interactively
+python3 wgea_analyze.py --industry            # national industry summary
 ```
 
-**See a summary across all industries:**
+### Regenerate the result tables
 
-```
-python3 wgea_analyze.py --industry
-```
-
----
-
-## Optional — Regenerate the pre-built result tables
-
-The `results/` folder already contains pre-built tables (see top of this page). If you want to regenerate them yourself after downloading the data:
-
+The `results/` folder already has pre-built tables. To regenerate them after downloading the data:
 ```
 python3 generate_results.py
 ```
-
-You'll see this in your Terminal:
-
 ```
 Loading data...
   8,617 employers, 1,652 with senior management data
@@ -195,23 +127,18 @@ Generating tables...
 
 Done. Results saved to results/
 ```
+Open `.md` files in a text editor, or view on GitHub where they render as formatted tables.
 
-Open any of those `.md` files in a text editor, or view them on GitHub where they render as formatted tables. All tables are filtered to companies with 500 or more employees.
+### Limitations
 
----
+- **Large employers only** — only companies with 100+ employees are required to report. Smaller companies not included.
+- **Private sector focus** — covers private sector employers; some Commonwealth public sector employers included, but not state/territory government.
+- **No individual salaries** — figures are aggregated per company, not per person.
+- **Pay gap %, not raw hourly rate** — WGEA uses full-time-equivalent annual salary. The $/hr figure shown is an estimate derived from this.
+- **Self-reported** — employers report their own data; not independently audited.
+- **Australia only.**
 
-## Limitations of this data
-
-- **Large employers only** — reporting is only required from employers with **100 or more employees**. Smaller companies are not included.
-- **Private sector focus** — the pay gap spreadsheet covers private sector employers. Some Commonwealth public sector employers are included, but state/territory government employers are not.
-- **No individual salaries** — the data shows aggregated figures per company, not individual employee pay. You can see the gap between men and women, but not exact salaries.
-- **Pay gap %, not hourly rate** — WGEA reports a gender pay gap percentage using full-time-equivalent annual salary. It accounts for part-time work by converting everyone to a full-time equivalent, rather than reporting an actual hourly rate.
-- **Self-reported** — employers report their own data to WGEA. While WGEA does some validation, figures are not independently audited.
-- **Australia only** — this tool currently uses Australian data only.
-
----
-
-## Data sources
+### Data sources
 
 All data is publicly available under Creative Commons Attribution 3.0 Australia.
 
@@ -220,11 +147,9 @@ All data is publicly available under Creative Commons Attribution 3.0 Australia.
 | Employer pay gap percentages | [WGEA Employer Gender Pay Gaps Report](https://www.wgea.gov.au/publications/employer-gender-pay-gaps-report) |
 | Workforce composition by gender & role | [data.gov.au — WGEA Dataset](https://data.gov.au/data/dataset/wgea-dataset) |
 
-The data files themselves are not stored in this repo — run `fetch_wgea_data.py` to download them to your computer.
+Data files are not stored in this repo — run `fetch_wgea_data.py` to download them.
 
----
+### Other scripts
 
-## Other scripts
-
-- `analyze_pay.py` — analyse a CSV file of your own employee data (see the script for the required column format)
+- `analyze_pay.py` — analyse a CSV of your own employee data
 - `generate_sample_data.py` — generate fake employee data for testing
