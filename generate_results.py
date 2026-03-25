@@ -59,6 +59,30 @@ def fmt_pct(val):
         return "n/a"
 
 
+AU_WEEKLY_HOURS = 38  # standard full-time hours per week in Australia
+
+
+def hourly_gap(avg_gpg, avg_remuneration, pct_women):
+    """
+    Estimate the average hourly pay difference (men minus women) in dollars.
+
+    Uses: diff_annual = avg_remuneration * gpg / (1 - gpg * pct_women)
+    Then converts annual → hourly via 38 hrs/week × 52 weeks.
+    Returns None if any input is missing or invalid.
+    """
+    try:
+        g = float(avg_gpg)
+        r = float(avg_remuneration)
+        p = float(pct_women)
+        denominator = 1 - g * p
+        if denominator <= 0:
+            return None
+        diff_annual = r * g / denominator
+        return diff_annual / (AU_WEEKLY_HOURS * 52)
+    except (TypeError, ValueError, ZeroDivisionError):
+        return None
+
+
 def write_pay_gap_table(employers):
     # Filter: 500+ employees, valid positive median total remuneration GPG
     rows = []
@@ -72,18 +96,29 @@ def write_pay_gap_table(employers):
             gpg = float(val)
         except (ValueError, TypeError):
             continue
+
+        avg_gpg   = e.get("Average total remuneration GPG (%)")
+        avg_remun = e.get("Total workforce - average total remuneration ($)*")
+        pct_women = e.get("Total workforce % women")
+        gap_hourly = hourly_gap(avg_gpg, avg_remun, pct_women)
+
         rows.append((
             e["Employer name"],
             e.get("Industry (ANZSIC Division)", ""),
             e.get("Employer size range   (# employees)", ""),
             gpg,
+            gap_hourly,
         ))
 
     # Sort descending — highest gap (most disadvantaged for women) first
     rows.sort(key=lambda x: x[3], reverse=True)
 
     note = datetime.now().strftime('%d %B %Y')
-    footer = "> **How to read this:** A gap of +30% means men's median pay is 30% higher than women's median pay at that company."
+    footer = (
+        "> **How to read this:** The pay gap % is the median total remuneration gap. "
+        "The $/hr column is an estimate of how much more per hour men earn on average, "
+        "calculated from the average gap and average total remuneration (38 hr/week, 52 weeks)."
+    )
 
     for n in [20, 100]:
         top_n = rows[:n]
@@ -98,11 +133,12 @@ def write_pay_gap_table(employers):
             "",
             f"_Source: WGEA 2024-25 Employer Gender Pay Gaps data. Generated {note}._",
             "",
-            "| # | Company | Industry | Size | Median pay gap |",
-            "|---|---------|----------|------|---------------|",
+            "| # | Company | Industry | Size | Median pay gap | Approx. $/hr gap |",
+            "|---|---------|----------|------|----------------|-----------------|",
         ]
-        for i, (name, industry, size, gpg) in enumerate(top_n, 1):
-            lines.append(f"| {i} | {name} | {industry} | {size} | +{gpg*100:.1f}% |")
+        for i, (name, industry, size, gpg, gap_hr) in enumerate(top_n, 1):
+            hr_str = f"~${gap_hr:.2f}/hr" if gap_hr is not None else "n/a"
+            lines.append(f"| {i} | {name} | {industry} | {size} | +{gpg*100:.1f}% | {hr_str} |")
         lines += ["", footer]
 
         path = os.path.join(OUTPUT_DIR, f"top{n}_worst_pay_gap.md")
