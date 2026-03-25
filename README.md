@@ -95,6 +95,22 @@ python3 wgea_analyze.py --industry
 
 ---
 
+## Pre-generated results
+
+The `results/` folder contains ready-to-read tables generated from the 2024-25 data:
+
+| File | What it shows |
+|---|---|
+| [top20_worst_pay_gap.md](results/top20_worst_pay_gap.md) | 20 companies (500+ employees) where women's pay is furthest behind men's |
+| [top20_fewest_women_in_leadership.md](results/top20_fewest_women_in_leadership.md) | 20 companies (500+ employees) with the fewest women in senior roles |
+
+To regenerate these (e.g. after downloading fresh data):
+```
+python3 generate_results.py
+```
+
+---
+
 ## Limitations of this data
 
 - **Large employers only** — reporting is only required from employers with **100 or more employees**. Smaller companies are not included.
