@@ -95,6 +95,17 @@ python3 wgea_analyze.py --industry
 
 ---
 
+## Limitations of this data
+
+- **Large employers only** — reporting is only required from employers with **100 or more employees**. Smaller companies are not included.
+- **Private sector focus** — the pay gap spreadsheet covers private sector employers. Some Commonwealth public sector employers are included, but state/territory government employers are not.
+- **No individual salaries** — the data shows aggregated figures per company, not individual employee pay. You can see the gap between men and women, but not exact salaries.
+- **Pay gap %, not hourly rate** — WGEA reports a gender pay gap percentage using full-time-equivalent annual salary. It accounts for part-time work by converting everyone to a full-time equivalent, rather than reporting an actual hourly rate.
+- **Self-reported** — employers report their own data to WGEA. While WGEA does some validation, figures are not independently audited.
+- **Australia only** — this tool currently uses Australian data only.
+
+---
+
 ## Data sources
 
 All data is publicly available under Creative Commons Attribution 3.0 Australia.
