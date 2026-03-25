@@ -110,9 +110,6 @@ def write_pay_gap_table(employers):
             gap_hourly,
         ))
 
-    # Sort descending — highest gap (most disadvantaged for women) first
-    rows.sort(key=lambda x: x[3], reverse=True)
-
     note = datetime.now().strftime('%d %B %Y')
     footer = (
         "> **How to read this:** The pay gap % is the median total remuneration gap. "
@@ -120,31 +117,42 @@ def write_pay_gap_table(employers):
         "calculated from the average gap and average total remuneration (38 hr/week, 52 weeks)."
     )
 
-    for n in [20, 100]:
-        top_n = rows[:n]
-        lines = [
-            f"# Top {n}: Worst Pay Gap for Women (companies with 500+ employees)",
-            "",
-            "Ranked by **median total remuneration gender pay gap** — the higher the %,",
-            "the more men earn compared to women at that company.",
-            "",
-            "Pay figures use full-time-equivalent annual salary, so part-time workers",
-            "are fairly compared to full-time employees.",
-            "",
-            f"_Source: WGEA 2024-25 Employer Gender Pay Gaps data. Generated {note}._",
-            "",
-            "| # | Company | Industry | Size | Median pay gap | Approx. $/hr gap |",
-            "|---|---------|----------|------|----------------|-----------------|",
-        ]
-        for i, (name, industry, size, gpg, gap_hr) in enumerate(top_n, 1):
-            hr_str = f"~${gap_hr:.2f}/hr" if gap_hr is not None else "n/a"
-            lines.append(f"| {i} | {name} | {industry} | {size} | +{gpg*100:.1f}% | {hr_str} |")
-        lines += ["", footer]
+    def write_table(sorted_rows, filename_prefix, title_suffix, ranked_by_desc):
+        for n in [20, 100]:
+            top_n = sorted_rows[:n]
+            lines = [
+                f"# Top {n}: Worst {title_suffix} (companies with 500+ employees)",
+                "",
+                f"Ranked by **{ranked_by_desc}**.",
+                "",
+                "Pay figures use full-time-equivalent annual salary, so part-time workers",
+                "are fairly compared to full-time employees.",
+                "",
+                f"_Source: WGEA 2024-25 Employer Gender Pay Gaps data. Generated {note}._",
+                "",
+                "| # | Company | Industry | Size | Median pay gap | Approx. $/hr gap |",
+                "|---|---------|----------|------|----------------|-----------------|",
+            ]
+            for i, (name, industry, size, gpg, gap_hr) in enumerate(top_n, 1):
+                hr_str = f"~${gap_hr:.2f}/hr" if gap_hr is not None else "n/a"
+                lines.append(f"| {i} | {name} | {industry} | {size} | +{gpg*100:.1f}% | {hr_str} |")
+            lines += ["", footer]
+            path = os.path.join(OUTPUT_DIR, f"top{n}_{filename_prefix}.md")
+            with open(path, "w") as f:
+                f.write("\n".join(lines) + "\n")
+            print(f"  Written: {path}")
 
-        path = os.path.join(OUTPUT_DIR, f"top{n}_worst_pay_gap.md")
-        with open(path, "w") as f:
-            f.write("\n".join(lines) + "\n")
-        print(f"  Written: {path}")
+    # Table 1: ranked by median pay gap %
+    rows_by_pct = sorted(rows, key=lambda x: x[3], reverse=True)
+    write_table(rows_by_pct, "worst_pay_gap",
+                "Pay Gap for Women",
+                "median total remuneration gender pay gap — the higher the %, the more men earn compared to women")
+
+    # Table 2: ranked by approx hourly dollar gap (exclude rows with no hourly data)
+    rows_by_hr = sorted([r for r in rows if r[4] is not None], key=lambda x: x[4], reverse=True)
+    write_table(rows_by_hr, "worst_hourly_gap",
+                "Hourly Pay Gap for Women ($ per hour)",
+                "estimated hourly pay gap in dollars — how much more per hour men earn on average")
 
 
 def write_leadership_table(senior):

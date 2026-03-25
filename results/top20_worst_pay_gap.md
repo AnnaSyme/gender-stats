@@ -1,7 +1,6 @@
 # Top 20: Worst Pay Gap for Women (companies with 500+ employees)
 
-Ranked by **median total remuneration gender pay gap** — the higher the %,
-the more men earn compared to women at that company.
+Ranked by **median total remuneration gender pay gap — the higher the %, the more men earn compared to women**.
 
 Pay figures use full-time-equivalent annual salary, so part-time workers
 are fairly compared to full-time employees.

@@ -15,6 +15,13 @@ No setup needed — these tables are ready to read now. Click any file name belo
 | [top20_worst_pay_gap.md](results/top20_worst_pay_gap.md) | Top 20 companies |
 | [top100_worst_pay_gap.md](results/top100_worst_pay_gap.md) | Top 100 companies |
 
+**Worst hourly pay gap for women** (ranked by estimated $/hr men earn more than women, companies with 500+ employees):
+
+| File | What it shows |
+|---|---|
+| [top20_worst_hourly_gap.md](results/top20_worst_hourly_gap.md) | Top 20 companies |
+| [top100_worst_hourly_gap.md](results/top100_worst_hourly_gap.md) | Top 100 companies |
+
 **Fewest women in senior leadership** (CEOs, executives, senior managers — companies with 500+ employees, at least 5 people in senior roles):
 
 | File | What it shows |
