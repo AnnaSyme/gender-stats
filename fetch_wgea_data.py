@@ -12,6 +12,9 @@ import os
 import sys
 import urllib.request
 import zipfile
+from datetime import datetime
+
+TIMESTAMP_FILE = "data_downloaded_at.txt"
 
 FILES = [
     {
@@ -64,11 +67,16 @@ def main():
 
     extract_workforce_csv("wgea_2024.zip")
 
+    timestamp = datetime.now().strftime("%d %B %Y at %I:%M %p")
+    with open(TIMESTAMP_FILE, "w") as f:
+        f.write(timestamp)
+
     print("\nAll files ready:")
     for path in [FILES[0]["name"], WORKFORCE_CSV_OUT]:
         size = os.path.getsize(path) / 1_048_576
         print(f"  {path}  ({size:.1f} MB)")
 
+    print(f"\nData downloaded: {timestamp}")
     print("\nYou can now run:  python3 wgea_analyze.py")
 
 

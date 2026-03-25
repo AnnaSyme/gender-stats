@@ -27,6 +27,7 @@ except ImportError:
 
 PAY_GAP_FILE        = "wgea_employer_pay_gaps.xlsx"
 WORKFORCE_FILE      = "wgea_workforce_composition_2024.csv"
+TIMESTAMP_FILE      = "data_downloaded_at.txt"
 
 SENIOR_MANAGER_ROLES = {
     "CEOs",
@@ -298,6 +299,12 @@ def main():
         print("Run fetch_wgea_data.py first to download the data files.")
         sys.exit(1)
     print(f"done. ({len(employers):,} employers, {len(workforce):,} workforce rows)")
+
+    try:
+        with open(TIMESTAMP_FILE) as f:
+            print(f"Data downloaded: {f.read().strip()}")
+    except FileNotFoundError:
+        pass
 
     if args.industry:
         print_industry_summary(employers)
