@@ -125,22 +125,21 @@ def print_section(title):
 
 
 def print_pay_gap(record):
-    print_section("PAY GAP (FTE-equivalent annualised salary)")
+    print_section("PAY GAP 2024-25 (FTE-equivalent annualised salary)")
     print("  Positive % = men earn more.  Negative % = women earn more.\n")
 
-    print(f"  {'Metric':<38} {'2024-25':>9}  {'2023-24':>9}")
-    print(f"  {'─'*38}  {'─'*9}  {'─'*9}")
+    print(f"  {'Metric':<38} {'2024-25':>9}")
+    print(f"  {'─'*38}  {'─'*9}")
 
     metrics = [
-        ("Median total remuneration GPG (%)",  "Median total remuneration GPG (%) "),
-        ("Median base salary GPG (%)",          "Median base salary GPG (%) "),
-        ("Average total remuneration GPG (%)",  "Average total remuneration GPG (%) "),
-        ("Average base salary GPG (%)",         "Average base salary GPG (%) "),
+        "Median total remuneration GPG (%)",
+        "Median base salary GPG (%)",
+        "Average total remuneration GPG (%)",
+        "Average base salary GPG (%)",
     ]
-    for label, col_2324 in metrics:
-        v_2425 = record.get(label)
-        v_2324 = record.get(col_2324)
-        print(f"  {label:<38} {fmt_pct(v_2425):>9}  {fmt_pct(v_2324):>9}")
+    for label in metrics:
+        v = record.get(label)
+        print(f"  {label:<38} {fmt_pct(v):>9}")
 
     # Quartile breakdown
     print_section("WORKFORCE QUARTILES — % women in each pay quartile")
