@@ -81,34 +81,34 @@ def write_pay_gap_table(employers):
 
     # Sort descending — highest gap (most disadvantaged for women) first
     rows.sort(key=lambda x: x[3], reverse=True)
-    top20 = rows[:20]
 
-    lines = [
-        "# Top 20: Worst Pay Gap for Women (companies with 500+ employees)",
-        "",
-        "Ranked by **median total remuneration gender pay gap** — the higher the %,",
-        "the more men earn compared to women at that company.",
-        "",
-        "Pay figures use full-time-equivalent annual salary, so part-time workers",
-        "are fairly compared to full-time employees.",
-        "",
-        f"_Source: WGEA 2024-25 Employer Gender Pay Gaps data. Generated {datetime.now().strftime('%d %B %Y')}._",
-        "",
-        "| # | Company | Industry | Size | Median pay gap |",
-        "|---|---------|----------|------|---------------|",
-    ]
-    for i, (name, industry, size, gpg) in enumerate(top20, 1):
-        lines.append(f"| {i} | {name} | {industry} | {size} | +{gpg*100:.1f}% |")
+    note = datetime.now().strftime('%d %B %Y')
+    footer = "> **How to read this:** A gap of +30% means men's median pay is 30% higher than women's median pay at that company."
 
-    lines += [
-        "",
-        "> **How to read this:** A gap of +30% means men's median pay is 30% higher than women's median pay at that company.",
-    ]
+    for n in [20, 100]:
+        top_n = rows[:n]
+        lines = [
+            f"# Top {n}: Worst Pay Gap for Women (companies with 500+ employees)",
+            "",
+            "Ranked by **median total remuneration gender pay gap** — the higher the %,",
+            "the more men earn compared to women at that company.",
+            "",
+            "Pay figures use full-time-equivalent annual salary, so part-time workers",
+            "are fairly compared to full-time employees.",
+            "",
+            f"_Source: WGEA 2024-25 Employer Gender Pay Gaps data. Generated {note}._",
+            "",
+            "| # | Company | Industry | Size | Median pay gap |",
+            "|---|---------|----------|------|---------------|",
+        ]
+        for i, (name, industry, size, gpg) in enumerate(top_n, 1):
+            lines.append(f"| {i} | {name} | {industry} | {size} | +{gpg*100:.1f}% |")
+        lines += ["", footer]
 
-    path = os.path.join(OUTPUT_DIR, "top20_worst_pay_gap.md")
-    with open(path, "w") as f:
-        f.write("\n".join(lines) + "\n")
-    print(f"  Written: {path}")
+        path = os.path.join(OUTPUT_DIR, f"top{n}_worst_pay_gap.md")
+        with open(path, "w") as f:
+            f.write("\n".join(lines) + "\n")
+        print(f"  Written: {path}")
 
 
 def write_leadership_table(senior):
@@ -130,35 +130,35 @@ def write_leadership_table(senior):
 
     # Sort ascending by % women — fewest women first
     rows.sort(key=lambda x: x[6])
-    top20 = rows[:20]
 
-    lines = [
-        "# Top 20: Fewest Women in Senior Leadership (companies with 500+ employees)",
-        "",
-        "Ranked by the **lowest percentage of women** in senior roles (CEOs, executives,",
-        "senior managers, and key management personnel).",
-        "",
-        "Only companies with at least 5 people in senior roles are included.",
-        "",
-        f"_Source: WGEA 2024-25 Workforce Composition data. Generated {datetime.now().strftime('%d %B %Y')}._",
-        "",
-        "| # | Company | Industry | Size | Men | Women | % Women |",
-        "|---|---------|----------|------|-----|-------|---------|",
-    ]
-    for i, (name, industry, size, men, women, total, pct_women) in enumerate(top20, 1):
-        lines.append(
-            f"| {i} | {name} | {industry} | {size} | {men} | {women} | {pct_women*100:.0f}% |"
-        )
+    note = datetime.now().strftime('%d %B %Y')
+    footer = "> Senior roles include: CEOs, Other Executives and General Managers, Senior Managers, and Key Management Personnel."
 
-    lines += [
-        "",
-        "> Senior roles include: CEOs, Other Executives and General Managers, Senior Managers, and Key Management Personnel.",
-    ]
+    for n in [20, 100]:
+        top_n = rows[:n]
+        lines = [
+            f"# Top {n}: Fewest Women in Senior Leadership (companies with 500+ employees)",
+            "",
+            "Ranked by the **lowest percentage of women** in senior roles (CEOs, executives,",
+            "senior managers, and key management personnel).",
+            "",
+            "Only companies with at least 5 people in senior roles are included.",
+            "",
+            f"_Source: WGEA 2024-25 Workforce Composition data. Generated {note}._",
+            "",
+            "| # | Company | Industry | Size | Men | Women | % Women |",
+            "|---|---------|----------|------|-----|-------|---------|",
+        ]
+        for i, (name, industry, size, men, women, total, pct_women) in enumerate(top_n, 1):
+            lines.append(
+                f"| {i} | {name} | {industry} | {size} | {men} | {women} | {pct_women*100:.0f}% |"
+            )
+        lines += ["", footer]
 
-    path = os.path.join(OUTPUT_DIR, "top20_fewest_women_in_leadership.md")
-    with open(path, "w") as f:
-        f.write("\n".join(lines) + "\n")
-    print(f"  Written: {path}")
+        path = os.path.join(OUTPUT_DIR, f"top{n}_fewest_women_in_leadership.md")
+        with open(path, "w") as f:
+            f.write("\n".join(lines) + "\n")
+        print(f"  Written: {path}")
 
 
 def main():
