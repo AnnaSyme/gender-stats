@@ -18,9 +18,7 @@ All tables cover companies with 500+ employees.
 
 - **Pay gap %** — median and average gender pay gap for 2024-25
 - **Approx. hourly gap** — estimated dollar difference per hour (men vs women)
-- **Workforce quartiles** — % women in top, upper-middle, lower-middle, and bottom pay bands
 - **Senior management** — breakdown across CEO, executive, and senior manager roles
-- **Employment types** — full-time, part-time, casual split by gender
 
 Pay figures use full-time-equivalent annual salary, so part-time workers are fairly compared to full-time.
 
@@ -73,15 +71,6 @@ Replace `Woolworths` with any Australian company name. If there are multiple mat
     (based on avg remuneration, 38hr/52wk)
 
 ────────────────────────────────────────────────────────────
-  WORKFORCE QUARTILES — % women in each pay quartile
-────────────────────────────────────────────────────────────
-  Upper quartile (top earners)               19%   $178,804
-  Upper-middle quartile                      26%   $107,827
-  Lower-middle quartile                      37%    $74,773
-  Lower quartile (bottom earners)            40%    $53,088
-  Total workforce                            33%   $103,588
-
-────────────────────────────────────────────────────────────
   SENIOR MANAGEMENT — gender breakdown
 ────────────────────────────────────────────────────────────
   Role                      Women     Men
@@ -90,14 +79,6 @@ Replace `Woolworths` with any Australian company name. If there are multiple mat
   Senior Managers               28%    72%
   ─────────────────────────────────────
   All senior roles combined     25%    75%   ⚠ 75% men
-
-────────────────────────────────────────────────────────────
-  EMPLOYMENT TYPES
-────────────────────────────────────────────────────────────
-  Type         Women     Men
-  Full-time      52%      48%
-  Part-time      73%      27%
-  Casual         56%      44%
 ```
 
 Other commands:
