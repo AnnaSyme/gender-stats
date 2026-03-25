@@ -1,0 +1,201 @@
+employee_id,gender,department,role,annual_salary,weekly_hours
+EMP0001,Male,Operations,Junior Analyst,49506,40
+EMP0002,Female,Operations,Analyst,43263,32
+EMP0003,Male,Finance,Senior Manager,111041,40
+EMP0004,Male,Marketing,Analyst,50623,32
+EMP0005,Male,Marketing,Senior Manager,80077,24
+EMP0006,Male,Finance,Analyst,64654,40
+EMP0007,Male,Operations,Analyst,61924,40
+EMP0008,Female,Marketing,Analyst,62575,40
+EMP0009,Male,Sales,Junior Analyst,40508,32
+EMP0010,Female,Operations,Junior Analyst,49527,40
+EMP0011,Male,Sales,Senior Manager,82306,24
+EMP0012,Female,Marketing,Senior Manager,72310,24
+EMP0013,Female,Engineering,Senior Analyst,75246,40
+EMP0014,Female,Operations,Manager,88520,40
+EMP0015,Female,Sales,Director,137261,40
+EMP0016,Female,Finance,Analyst,33849,24
+EMP0017,Female,Sales,Director,131930,40
+EMP0018,Female,Sales,Manager,63937,32
+EMP0019,Female,Operations,Analyst,35316,24
+EMP0020,Male,Sales,Analyst,57287,40
+EMP0021,Female,HR,Director,163341,40
+EMP0022,Female,Marketing,Analyst,29757,20
+EMP0023,Male,Marketing,Junior Analyst,23810,20
+EMP0024,Male,Engineering,Senior Manager,122608,40
+EMP0025,Male,Sales,Senior Manager,64064,20
+EMP0026,Male,Operations,Director,88504,24
+EMP0027,Female,Sales,Director,136037,40
+EMP0028,Male,Operations,Junior Analyst,39452,32
+EMP0029,Female,Engineering,Senior Manager,65801,20
+EMP0030,Female,Sales,Analyst,30807,20
+EMP0031,Male,Sales,Senior Manager,126010,40
+EMP0032,Male,Sales,Senior Analyst,77846,40
+EMP0033,Female,Engineering,Senior Manager,54065,20
+EMP0034,Male,Marketing,Senior Manager,68524,24
+EMP0035,Male,Marketing,Senior Manager,94948,32
+EMP0036,Male,HR,Analyst,40424,24
+EMP0037,Female,Sales,Director,97656,24
+EMP0038,Female,HR,Manager,90780,40
+EMP0039,Male,Engineering,Senior Analyst,71421,32
+EMP0040,Female,Marketing,Senior Manager,59902,24
+EMP0041,Male,Engineering,Analyst,69834,40
+EMP0042,Female,HR,Junior Analyst,45098,40
+EMP0043,Female,Marketing,Senior Manager,104270,32
+EMP0044,Male,Finance,Analyst,68230,40
+EMP0045,Female,Engineering,Junior Analyst,48331,40
+EMP0046,Male,Engineering,Director,146449,40
+EMP0047,Male,Sales,Director,147161,40
+EMP0048,Female,HR,Analyst,56814,40
+EMP0049,Female,Marketing,Manager,40911,20
+EMP0050,Male,Operations,Junior Analyst,26928,20
+EMP0051,Male,Marketing,Junior Analyst,47724,40
+EMP0052,Male,Marketing,Manager,98141,40
+EMP0053,Female,Engineering,Manager,45044,20
+EMP0054,Male,Finance,Senior Analyst,52926,24
+EMP0055,Male,Marketing,Analyst,59861,40
+EMP0056,Male,Operations,Senior Manager,127766,40
+EMP0057,Female,Engineering,Junior Analyst,25597,20
+EMP0058,Female,HR,Junior Analyst,44834,40
+EMP0059,Male,Marketing,Director,166461,40
+EMP0060,Female,HR,Senior Manager,105686,40
+EMP0061,Female,Marketing,Senior Analyst,73798,40
+EMP0062,Female,Operations,Director,74767,20
+EMP0063,Male,Finance,Junior Analyst,54224,40
+EMP0064,Male,Marketing,Senior Manager,126576,40
+EMP0065,Female,Engineering,Senior Analyst,72509,40
+EMP0066,Male,Operations,Senior Manager,95929,32
+EMP0067,Male,HR,Director,95772,24
+EMP0068,Male,Sales,Analyst,56891,40
+EMP0069,Female,Sales,Senior Analyst,82350,40
+EMP0070,Female,Operations,Director,147930,40
+EMP0071,Male,Operations,Junior Analyst,25969,20
+EMP0072,Female,Engineering,Junior Analyst,29118,24
+EMP0073,Female,Operations,Analyst,58761,40
+EMP0074,Male,Engineering,Junior Analyst,37953,32
+EMP0075,Male,HR,Senior Analyst,88105,40
+EMP0076,Male,Engineering,Analyst,60050,40
+EMP0077,Male,Marketing,Senior Analyst,46905,24
+EMP0078,Male,HR,Senior Analyst,66652,32
+EMP0079,Female,Marketing,Analyst,65711,40
+EMP0080,Male,Operations,Analyst,30221,20
+EMP0081,Male,Operations,Director,156263,40
+EMP0082,Female,Engineering,Director,80040,20
+EMP0083,Male,Marketing,Analyst,68378,40
+EMP0084,Female,Marketing,Senior Analyst,69719,40
+EMP0085,Male,Sales,Senior Analyst,36137,20
+EMP0086,Female,Operations,Senior Analyst,40397,20
+EMP0087,Female,Engineering,Junior Analyst,45055,40
+EMP0088,Male,HR,Junior Analyst,52119,40
+EMP0089,Female,HR,Manager,74018,32
+EMP0090,Female,Engineering,Senior Analyst,37935,20
+EMP0091,Female,Finance,Senior Analyst,70550,40
+EMP0092,Female,Engineering,Director,90114,24
+EMP0093,Male,Finance,Senior Analyst,63750,32
+EMP0094,Female,Finance,Analyst,38556,24
+EMP0095,Female,HR,Senior Manager,55884,20
+EMP0096,Male,Sales,Senior Analyst,76887,40
+EMP0097,Female,Finance,Manager,75932,32
+EMP0098,Male,Marketing,Director,145557,40
+EMP0099,Female,Marketing,Junior Analyst,45976,40
+EMP0100,Female,Engineering,Junior Analyst,38373,32
+EMP0101,Male,Finance,Manager,84508,32
+EMP0102,Female,Operations,Director,155179,40
+EMP0103,Female,Operations,Director,68175,20
+EMP0104,Male,Marketing,Manager,45381,20
+EMP0105,Male,HR,Junior Analyst,24541,20
+EMP0106,Male,Marketing,Manager,60135,24
+EMP0107,Female,HR,Manager,105459,40
+EMP0108,Male,Operations,Analyst,69114,40
+EMP0109,Male,Marketing,Senior Analyst,39543,20
+EMP0110,Male,Marketing,Director,157996,40
+EMP0111,Male,Sales,Director,155367,40
+EMP0112,Female,HR,Senior Analyst,66180,40
+EMP0113,Male,Marketing,Director,154021,40
+EMP0114,Male,Sales,Manager,102780,40
+EMP0115,Male,Marketing,Junior Analyst,51883,40
+EMP0116,Male,Finance,Senior Manager,125629,40
+EMP0117,Female,Finance,Senior Analyst,47377,24
+EMP0118,Female,Marketing,Manager,87824,40
+EMP0119,Male,Operations,Senior Analyst,49948,24
+EMP0120,Female,Marketing,Manager,99354,40
+EMP0121,Male,Operations,Junior Analyst,52022,40
+EMP0122,Male,Engineering,Analyst,59262,40
+EMP0123,Female,Finance,Analyst,55949,40
+EMP0124,Female,Sales,Manager,49327,24
+EMP0125,Male,Marketing,Senior Analyst,36124,20
+EMP0126,Male,Marketing,Junior Analyst,24133,20
+EMP0127,Male,Marketing,Senior Manager,117816,40
+EMP0128,Male,Engineering,Director,176960,40
+EMP0129,Male,Sales,Director,164175,40
+EMP0130,Male,Sales,Analyst,45416,32
+EMP0131,Male,HR,Senior Analyst,82298,40
+EMP0132,Female,HR,Junior Analyst,22239,20
+EMP0133,Female,HR,Director,114049,32
+EMP0134,Male,HR,Senior Analyst,50422,24
+EMP0135,Female,HR,Junior Analyst,45582,40
+EMP0136,Male,Finance,Junior Analyst,30560,24
+EMP0137,Male,Marketing,Director,168540,40
+EMP0138,Female,HR,Senior Manager,127081,40
+EMP0139,Female,Marketing,Senior Analyst,67180,40
+EMP0140,Female,HR,Manager,100111,40
+EMP0141,Male,Sales,Manager,90958,40
+EMP0142,Female,Sales,Senior Analyst,59881,32
+EMP0143,Female,Engineering,Senior Manager,123862,40
+EMP0144,Female,Finance,Director,162457,40
+EMP0145,Male,Operations,Director,172166,40
+EMP0146,Male,Sales,Junior Analyst,48630,40
+EMP0147,Female,Operations,Senior Analyst,66223,32
+EMP0148,Female,Operations,Manager,57274,24
+EMP0149,Male,Sales,Senior Analyst,78237,40
+EMP0150,Male,Marketing,Director,160679,40
+EMP0151,Female,Marketing,Analyst,37794,24
+EMP0152,Female,Marketing,Junior Analyst,45774,40
+EMP0153,Female,Operations,Junior Analyst,48920,40
+EMP0154,Male,Sales,Senior Manager,132852,40
+EMP0155,Male,Engineering,Junior Analyst,54405,40
+EMP0156,Male,Finance,Manager,96164,40
+EMP0157,Male,Finance,Senior Analyst,36869,20
+EMP0158,Male,Finance,Manager,69941,32
+EMP0159,Male,Marketing,Analyst,54631,32
+EMP0160,Female,Marketing,Junior Analyst,44341,40
+EMP0161,Female,Finance,Senior Manager,121353,40
+EMP0162,Male,HR,Senior Analyst,57578,32
+EMP0163,Male,Operations,Analyst,58457,40
+EMP0164,Male,Marketing,Analyst,46277,32
+EMP0165,Male,Engineering,Analyst,61693,40
+EMP0166,Male,Engineering,Senior Analyst,77585,40
+EMP0167,Female,Finance,Director,138152,40
+EMP0168,Female,Engineering,Manager,94409,40
+EMP0169,Female,Engineering,Analyst,51122,40
+EMP0170,Female,Engineering,Manager,57510,24
+EMP0171,Male,HR,Senior Analyst,87694,40
+EMP0172,Male,HR,Junior Analyst,45653,40
+EMP0173,Female,Sales,Senior Manager,60343,24
+EMP0174,Male,Sales,Director,177764,40
+EMP0175,Female,HR,Manager,99475,40
+EMP0176,Female,Finance,Senior Manager,126240,40
+EMP0177,Male,Finance,Senior Analyst,80921,40
+EMP0178,Male,Sales,Analyst,37046,24
+EMP0179,Male,Operations,Senior Analyst,41561,20
+EMP0180,Male,Engineering,Manager,95306,40
+EMP0181,Female,Finance,Junior Analyst,51614,40
+EMP0182,Male,Engineering,Manager,72916,32
+EMP0183,Female,Finance,Senior Manager,122058,40
+EMP0184,Female,HR,Senior Analyst,72377,40
+EMP0185,Male,Engineering,Junior Analyst,27487,20
+EMP0186,Female,Marketing,Director,121116,32
+EMP0187,Male,Marketing,Junior Analyst,46858,40
+EMP0188,Male,Marketing,Director,103596,24
+EMP0189,Female,Operations,Senior Manager,111017,40
+EMP0190,Male,Finance,Analyst,64031,40
+EMP0191,Male,HR,Analyst,37996,24
+EMP0192,Female,Sales,Junior Analyst,24013,20
+EMP0193,Female,Sales,Junior Analyst,38595,32
+EMP0194,Male,Finance,Analyst,63824,40
+EMP0195,Female,HR,Senior Analyst,81676,40
+EMP0196,Female,Marketing,Director,82581,20
+EMP0197,Male,Sales,Junior Analyst,31649,24
+EMP0198,Male,Operations,Manager,106365,40
+EMP0199,Male,Marketing,Junior Analyst,42583,32
+EMP0200,Female,Finance,Junior Analyst,43931,40

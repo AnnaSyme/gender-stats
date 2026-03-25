@@ -1,0 +1,9 @@
+# Large downloaded data files (run fetch_wgea_data.py to get these)
+wgea_2024.zip
+wgea_employer_pay_gaps.xlsx
+wgea_workforce_composition_2024.csv
+
+# Python
+__pycache__/
+*.py[cod]
+.venv/
