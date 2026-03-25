@@ -100,6 +100,13 @@ python3 wgea_analyze.py "Woolworths"
 
 Replace `Woolworths` with any Australian company name. If there are multiple matches, you'll be shown a list to choose from.
 
+The results print directly to your Terminal — no file is created. You'll see:
+
+- **Pay gap %** — median and average gender pay gap for 2024-25
+- **Workforce quartiles** — % women in the top, upper-middle, lower-middle, and bottom pay quartiles
+- **Senior management** — breakdown of men vs women across CEO, executive, and senior manager roles
+- **Employment types** — how many men and women work full-time, part-time, or casually
+
 Other examples:
 
 ```
@@ -119,6 +126,29 @@ python3 wgea_analyze.py
 ```
 python3 wgea_analyze.py --industry
 ```
+
+---
+
+## Optional — Regenerate the pre-built result tables
+
+The `results/` folder already contains pre-built tables (see top of this page). If you want to regenerate them yourself after downloading the data:
+
+```
+python3 generate_results.py
+```
+
+This will create or overwrite the following files in the `results/` folder:
+
+| File | What it contains |
+|---|---|
+| `results/top20_worst_pay_gap.md` | Top 20 companies by median pay gap % |
+| `results/top100_worst_pay_gap.md` | Top 100 companies by median pay gap % |
+| `results/top20_worst_hourly_gap.md` | Top 20 companies by estimated $/hr pay gap |
+| `results/top100_worst_hourly_gap.md` | Top 100 companies by estimated $/hr pay gap |
+| `results/top20_fewest_women_in_leadership.md` | Top 20 companies with fewest women in senior roles |
+| `results/top100_fewest_women_in_leadership.md` | Top 100 companies with fewest women in senior roles |
+
+All tables are filtered to companies with 500 or more employees.
 
 ---
 
