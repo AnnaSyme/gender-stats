@@ -2,11 +2,9 @@
 
 Built by Anna Syme and Claude (AI).
 
-This tool looks up real gender pay gap data for Australian companies, using data published by the [Workplace Gender Equality Agency (WGEA)](https://www.wgea.gov.au). It covers over 8,600 employers.
+This tool looks up real gender pay gap data for Australian companies, using data published by the [Workplace Gender Equality Agency (WGEA)](https://www.wgea.gov.au). 
 
 ## Pre-generated results
-
-No setup needed — these tables are ready to read now:
 
 | File | What it shows |
 |---|---|
